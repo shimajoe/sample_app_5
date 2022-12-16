@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#For using has_secure_password
+gem 'bcrypt',         '3.1.12'
+
 gem 'bootstrap-sass', '3.3.7'
 
 git_source(:github) do |repo_name|
