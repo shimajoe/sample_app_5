@@ -1,0 +1,5 @@
+michael:
+  name: Michael Example
+  email: michael@example.com
+  #fixtureではERbを利用できる
+  password_digest: <%= User.digest('password') %>

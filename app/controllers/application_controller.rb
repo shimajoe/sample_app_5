@@ -1,7 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  
-  def hello
-  end
-  
+  #Sessionヘルパーモジュールの読み込み
+  include SessionsHelper
 end
