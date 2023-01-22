@@ -3,6 +3,12 @@ source 'https://rubygems.org'
 #For using has_secure_password
 gem 'bcrypt',         '3.1.12'
 
+gem 'faker',          '1.7.3'
+
+gem 'will_paginate',           '3.1.6'
+
+gem 'bootstrap-will_paginate', '1.0.0'
+
 gem 'bootstrap-sass', '3.3.7'
 
 gem 'jquery-rails'
@@ -17,7 +23,7 @@ gem 'rails-controller-testing'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3' #←bundle updateの不具合の原因(ruby -vが2.7<=じゃないと使えない?)
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
