@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   
   resources :users
+  # account_activations resourceのeditへのルーティングのみを生成
+  resources :account_activations, only: [:edit]
 end

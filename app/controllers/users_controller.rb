@@ -6,11 +6,12 @@ class UsersController < ApplicationController
   def index
     #インスタンス変数@usersにUser.paginate(page: params[:page])を代入
     #params[:page])はwill_paginateによって自動的に生成されている
-    @users = User.paginate(page: params[:page])
+    @users = User.where(activated: true).paginate(page: params[:page])
   end
   
   def show
     @user = User.find(params[:id])
+    redirect_to root_url and return unless @user.activated?
     #よくわからない挙動があればdebuggerをぶち込もう
     #debugger
   end
@@ -22,9 +23,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)   
     if @user.save
-      log_in @user
-      flash[:success] = "Welcome to the Sample App!" #:success key に"Welcome ~~" value
-      redirect_to @user # 保存の成功をここで扱う。
+      @user.send_activation_email
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
     else
       #成功しなかった時はnewアクションに対応したviewが返る
       render 'new'
