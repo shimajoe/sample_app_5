@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   # password_resets resourceのnew,create,edit,updateへのルーティングのみを生成
   resources :password_resets,     only: [:new, :create, :edit, :update]
+  # microposts resourceのcreate,destroyへのルーティングのみを生成
+  resources :microposts,          only: [:create, :destroy]
 end

@@ -56,7 +56,7 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
                     user: { password:              "foobaz",
                             password_confirmation: "foobaz" } }
     assert is_logged_in?
-    assert_nil user.reload.reset_digest
+    assert_nil user.reload.reset_digest #reset_digestがnilか否か
     assert_not flash.empty?
     assert_redirected_to user
   end
@@ -74,6 +74,6 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
                             password_confirmation: "foobar" } }
     assert_response :redirect
     follow_redirect!
-    assert_match /expired/i , response.body #response.bodyはそのHTMLを全て返すメソッド
+    assert_match /expired/i , response.body#response.bodyはそのHTMLを全て返すメソッド
   end
 end

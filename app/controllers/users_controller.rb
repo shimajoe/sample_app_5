@@ -10,7 +10,11 @@ class UsersController < ApplicationController
   end
   
   def show
+    # @userにUserテーブルから(params[:id])のデータを取り出して代入
     @user = User.find(params[:id])
+    # @micropostに　@userのmicropostsのページネーションの指定ページ（params[:page]）を代入
+    @microposts = @user.microposts.paginate(page: params[:page])
+    
     redirect_to root_url and return unless @user.activated?
     #よくわからない挙動があればdebuggerをぶち込もう
     #debugger
@@ -60,16 +64,6 @@ class UsersController < ApplicationController
     end
     
     # beforeアクション
-    
-    # ログイン済みユーザーかどうか確認
-    def logged_in_user
-      unless logged_in?
-        # SessionsHelperのstore_locationメソッドを呼び出す
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
     
     # 正しいユーザーかどうか確認
     def correct_user
