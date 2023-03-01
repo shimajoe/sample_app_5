@@ -25,3 +25,6 @@
 #本番環境でPostgreSQLを使用する際に作成
 #詳しくは https://qiita.com/ysk91_engineer/items/904a5bc881eda8a10df8
 .env.production
+
+# アップロードされたテスト画像を無視する
+/public/uploads

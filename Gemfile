@@ -73,7 +73,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem 'pg'
-#  gem 'fog', '1.42'
-  # 環境変数の設定
-  gem 'dotenv-rails'
+  gem 'fog', '1.42'
+  gem 'dotenv-rails'# 環境変数の設定
 end
