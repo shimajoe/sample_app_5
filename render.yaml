@@ -1,0 +1,20 @@
+databases:
+  - name: user
+    databaseName: user
+    user: ubuntu
+    region: Oregon
+
+services:
+  - type: web
+    name: user
+    env: ruby
+    region: Oregon
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: <%= ENV['DATABASE_URL'] %>
+        fromDatabase:
+          name: user
+          property: connectionString
+      - key: <%= ENV['RAILS_MASTER_KEY'] %>
+        sync: false
