@@ -51,9 +51,9 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '1.3.13' #←bundle updateの不具合の原因(ruby -vが2.7<=じゃないと使えない?)
+  gem 'sqlite3', '1.4' #←bundle updateの不具合の原因(ruby -vが2.7<=じゃないと使えない?)
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug',  '9.0.6', platform: :mri
+  gem 'byebug',  '9.0.6', platform: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
@@ -69,10 +69,11 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data' #, platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem 'pg'
-  gem 'fog', '1.42'
+  #gem 'fog', '1.42'
+  gem 'fog-aws'
   gem 'dotenv-rails'# 環境変数の設定
 end
