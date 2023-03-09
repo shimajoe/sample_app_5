@@ -2,7 +2,7 @@ databases:
   - name: user
     databaseName: user
     user: ubuntu
-    region: Oregon
+    region: singapore
 
 services:
   - type: web
