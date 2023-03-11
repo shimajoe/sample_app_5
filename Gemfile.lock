@@ -193,8 +193,6 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    sass-rails (6.0.0)
-      sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -269,7 +267,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.6)
   rails-controller-testing
-  sass-rails (~> 6)
+  sassc-rails
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
