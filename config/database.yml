@@ -18,3 +18,5 @@ production:
   database: user
   username: ExampleUser
   password: <%= ENV['DB_PASSWORD'] %> # .envで設定
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>

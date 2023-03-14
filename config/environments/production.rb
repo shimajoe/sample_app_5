@@ -94,4 +94,6 @@ Rails.application.configure do
   # and use secure cookies.
   config.force_ssl = true
   
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present? || ENV['RENDER'].present?
+  
 end
